@@ -11,6 +11,8 @@ import { ItemComponent } from './operation/item/item.component';
 import { IncomeComponent } from './operation/income/income.component';
 import { ExpenseComponent } from './operation/expense/expense.component';
 import { ContainerOperationComponent } from './operation/container-operation/container-operation.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { OperationService } from './operation/operation.service';
 
 @NgModule({
   declarations: [
@@ -25,9 +27,10 @@ import { ContainerOperationComponent } from './operation/container-operation/con
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule
   ],
-  providers: [BalanceService],
+  providers: [BalanceService, OperationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

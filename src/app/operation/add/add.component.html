@@ -1,17 +1,17 @@
 <div class="add-item-container">
-    <form action="">
+    <form [formGroup]="addForm" (ngSubmit)="submitForm()">
       <div class="input-container">
         <p class="font-size-small">Amount</p>
-        <input class="input-field-small" type="text" />
+        <input formControlName="amount" class="input-field-small" type="text" />
       </div>
       <div class="input-container">
         <p class="font-size-small">Description</p>
-        <input class="input-field-large" type="text" />
+        <input formControlName="description" class="input-field-large" type="text" />
       </div>
       <div class="action-buttons">
-        <button class="btn-income btn-medium-selected">+</button>
-        <button class="btn-expense btn-medium">-</button>
-        <button class="btn-add-item">add</button>
+        <button [ngClass]="{'btn-medium-selected': operationSelected === 'income', 'btn-income':true, 'btn-medium':true}"  type="button" (click)="switchToIncome()">+</button>
+        <button [ngClass]="{'btn-medium-selected': operationSelected === 'expense', 'btn-expense':true, 'btn-medium':true}" type="button" (click)="switchToExpense()">-</button>
+        <button class="btn-add-item" type="submit">add</button>
       </div>
     </form>
   </div>

@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Operation } from 'src/app/models/Operation';
+import { Subscription, Subject } from 'rxjs';
+import { OperationService } from '../operation.service';
 
 @Component({
   selector: 'app-income',
@@ -7,9 +10,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class IncomeComponent implements OnInit {
 
-  constructor() { }
+  incomes: Operation[] = [];
+  incomesSubject:Subject<Operation[]> = new Subject<Operation[]>();
+  private expensesSubscription: Subscription;
+
+  constructor(private operationService: OperationService) { }
 
   ngOnInit(): void {
+    this.expensesSubscription = this.operationService.getIncomeListener().subscribe(response => {
+      this.incomes = response;
+      // console.log(this.incomes);
+      this.incomesSubject.next([...this.incomes]);
+    });
   }
 
 }

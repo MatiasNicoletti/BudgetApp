@@ -1,9 +1,6 @@
 <div class="items-list">
-    <app-item></app-item>
-    <app-item></app-item>
-    <app-item></app-item>
-    <app-item></app-item>
-    <app-item></app-item>
-    <app-item></app-item>
-    <app-item></app-item>
+    <div [ngStyle]="{display: 'none'}" *ngFor="let item of itemList let i = index">
+        <app-item [item]="{{item}}"></app-item>
+    </div>
+    
 </div>
