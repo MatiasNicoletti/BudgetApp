@@ -1,0 +1,59 @@
+.btn{
+    border: none;
+    outline: none;
+    cursor: pointer;
+    margin: 0 0.5rem;
+    color: #ffffff;
+    border-radius: 1rem;
+}
+
+.btn-medium{
+    @extend .btn;
+    width: 3.5rem;
+    height: 3rem;
+    border-radius: 1rem;
+}
+
+.btn-medium-selected{
+    @extend .btn;
+    width: 4.5rem;
+    height: 3.5rem;
+    
+}
+
+.btn-income{
+    background-color: $green;
+}
+
+.btn-expense{
+    background-color: $red;
+}
+
+.btn-add-item{
+    @extend .btn;
+    background-color: $violet;
+    width: 7rem;
+    height: 3.5rem;
+    font-family: inherit;
+    text-transform: uppercase;
+}
+
+.btn-delete-item{
+    @extend .btn;
+    position: absolute;
+    background-color: $red;
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 100%;
+    padding: 0px;
+    font-size: 1rem;
+    position: relative;
+    bottom: 0.1rem;
+    left: 2rem;
+    opacity: 0;
+    transition: all .1s ease-in;
+}
+
+.action-button{
+    margin-top: 1rem;
+}
