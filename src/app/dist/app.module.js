@@ -15,6 +15,7 @@ var list_component_1 = require("./operation/list/list.component");
 var add_component_1 = require("./operation/add/add.component");
 var delete_component_1 = require("./operation/delete/delete.component");
 var balance_component_1 = require("./balance/balance/balance.component");
+var balance_service_1 = require("./balance/balance.service");
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
@@ -31,7 +32,7 @@ var AppModule = /** @class */ (function () {
                 platform_browser_1.BrowserModule,
                 app_routing_module_1.AppRoutingModule
             ],
-            providers: [],
+            providers: [balance_service_1.BalanceService],
             bootstrap: [app_component_1.AppComponent]
         })
     ], AppModule);
