@@ -5,7 +5,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ListComponent } from './operation/list/list.component';
 import { AddComponent } from './operation/add/add.component';
-import { DeleteComponent } from './operation/delete/delete.component';
 import { BalanceComponent } from './balance/balance/balance.component';
 import { BalanceService } from './balance/balance.service';
 import { ItemComponent } from './operation/item/item.component';
@@ -18,7 +17,6 @@ import { ContainerOperationComponent } from './operation/container-operation/con
     AppComponent,
     ListComponent,
     AddComponent, 
-    DeleteComponent,
     BalanceComponent,
     ItemComponent,
     IncomeComponent,

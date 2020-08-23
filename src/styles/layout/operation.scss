@@ -8,18 +8,30 @@
     align-items: center;
 }
 
-.add-item-container{
-    width: 75%;
-    height: 15%;
+app-add{
     display: flex;
-    justify-content: center;
-    align-items: center;
-    & form{
+        justify-content: center;
+        align-items: center;
+    & .add-item-container{
+        width: 75%;
+        height: 15%;
         display: flex;
         justify-content: center;
-    align-items: center;
+        align-items: center;
+        margin-top: 2rem;
+        & form{
+            display: flex;
+            justify-content: center;
+        align-items: center;
+        }
+        
     }
-    
+}
+
+.action-buttons{
+    margin-top: 1rem;
+    display: flex;
+    align-items: center;
 }
 
 .items-container{
