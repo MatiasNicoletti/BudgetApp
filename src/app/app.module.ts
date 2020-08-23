@@ -11,6 +11,7 @@ import { BalanceService } from './balance/balance.service';
 import { ItemComponent } from './operation/item/item.component';
 import { IncomeComponent } from './operation/income/income.component';
 import { ExpenseComponent } from './operation/expense/expense.component';
+import { ContainerOperationComponent } from './operation/container-operation/container-operation.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { ExpenseComponent } from './operation/expense/expense.component';
     BalanceComponent,
     ItemComponent,
     IncomeComponent,
-    ExpenseComponent
+    ExpenseComponent,
+    ContainerOperationComponent
   ],
   imports: [
     BrowserModule,
