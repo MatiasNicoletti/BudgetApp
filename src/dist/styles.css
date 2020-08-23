@@ -134,6 +134,7 @@ html {
 }
 
 .btn-delete-item {
+  position: absolute;
   background-color: #e90a0a;
   width: 1.5rem;
   height: 1.5rem;
@@ -142,6 +143,9 @@ html {
   font-size: 1rem;
   position: relative;
   bottom: 0.1rem;
+  left: 2rem;
+  opacity: 0;
+  transition: all 0.1s ease-in;
 }
 
 .action-button {
@@ -191,12 +195,20 @@ html {
   align-items: center;
   justify-content: space-between;
   margin-top: 1rem;
+  transition: all 0.2s ease-in;
 }
 .items-list .item .amount, .items-list .item p {
   margin: 0 1rem;
 }
 .items-list .item span {
   color: #2d9823;
+}
+.items-list .item:hover {
+  background-color: #dddddd;
+}
+.items-list .item:hover .btn-delete-item {
+  opacity: 1;
+  left: 0;
 }
 .items-list::-webkit-scrollbar {
   width: 1em;

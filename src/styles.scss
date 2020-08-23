@@ -11,6 +11,7 @@
 html{
     font-size: 62.5%;
     font-family: 'Spartan', sans-serif;
+    
 }
 
 .app-container {
@@ -152,6 +153,7 @@ html{
 
 .btn-delete-item{
     @extend .btn;
+    position: absolute;
     background-color: #e90a0a;
     width: 1.5rem;
     height: 1.5rem;
@@ -160,6 +162,9 @@ html{
     font-size: 1rem;
     position: relative;
     bottom: 0.1rem;
+    left: 2rem;
+    opacity: 0;
+    transition: all .1s ease-in;
 }
 
 .action-button{
@@ -209,12 +214,20 @@ html{
         align-items: center;
         justify-content: space-between;
         margin-top: 1rem;
+        transition: all .2s ease-in;
         & .amount, p{
             margin: 0 1rem;
         }
         & span{
             color: #2d9823;
         }   
+        &:hover{
+            .btn-delete-item{
+                opacity: 1;
+                left: 0;
+            }
+            background-color: #dddddd;
+        }
     }
     &::-webkit-scrollbar {
         width: 1em;
