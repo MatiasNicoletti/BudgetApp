@@ -6,6 +6,7 @@
     color: #ffffff;
     border-radius: 1rem;
     transition: all .1s ease-in;
+    
 }
 
 .btn-medium{
@@ -37,6 +38,12 @@
     height: 3.5rem;
     font-family: inherit;
     text-transform: uppercase;
+}
+
+.btn-add-item-disabled{
+    @extend .btn-add-item;
+    background-color: $violet-light;
+    cursor: not-allowed;
 }
 
 .btn-delete-item{

@@ -1,17 +1,17 @@
 <div class="add-item-container">
-    <form [formGroup]="addForm" (ngSubmit)="submitForm()">
+    <form [formGroup]="addForm"  (ngSubmit)="submitForm()">
       <div class="input-container">
         <p class="font-size-small">Amount</p>
-        <input formControlName="amount" class="input-field-small" type="text" />
+        <input formControlName="amount" class="input-field-small" required  type="text" [ngClass]="{'input-incorrect': addForm.controls['amount'].invalid && (addForm.controls['amount'].dirty || addForm.controls['amount'].touched)}"/>
       </div>
       <div class="input-container">
         <p class="font-size-small">Description</p>
-        <input formControlName="description" class="input-field-large" type="text" />
+        <input formControlName="description" class="input-field-large" required  type="text" [ngClass]="{'input-incorrect': addForm.controls['description'].invalid && (addForm.controls['description'].dirty || addForm.controls['description'].touched)}"/>
       </div>
       <div class="action-buttons">
         <button [ngClass]="{'btn-medium-selected': operationSelected === 'income', 'btn-income':true, 'btn-medium':true}"  type="button" (click)="switchToIncome()">+</button>
         <button [ngClass]="{'btn-medium-selected': operationSelected === 'expense', 'btn-expense':true, 'btn-medium':true}" type="button" (click)="switchToExpense()">-</button>
-        <button class="btn-add-item" type="submit">add</button>
+        <button  type="submit" [ngClass]="{'btn-add-item-disabled': addForm.invalid , 'btn-add-item': addForm.valid}">add</button>
       </div>
     </form>
   </div>

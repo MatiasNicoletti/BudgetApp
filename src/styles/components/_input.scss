@@ -7,6 +7,7 @@
     outline: none;
     padding: 0 0.5rem;
     background-color: #F1F1F1;
+    transition: all .3s ease-in;
 }
 
 
@@ -19,4 +20,8 @@
 .input-field-large{
     @extend .input-field;
     width: 40rem;
+}
+
+.input-incorrect{
+    border: 1px solid red;
 }

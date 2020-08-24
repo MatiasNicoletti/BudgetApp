@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { OperationService } from '../operation.service';
 import { BalanceService } from 'src/app/balance/balance.service';
 import { Operation } from 'src/app/models/Operation';
@@ -17,31 +17,35 @@ export class AddComponent implements OnInit {
 
   ngOnInit(): void {
     this.initForm();
+    console.log(this.addForm.controls['amount']);
   }
 
-  submitForm(){
-    const operation: Operation = 
-    {
-      amount: this.addForm.value.amount,
-      description: this.addForm.value.description,
-      type: this.operationSelected
-    };
+  submitForm() {
+    if (this.addForm.valid) {
+      const operation: Operation =
+      {
+        amount: this.addForm.value.amount,
+        description: this.addForm.value.description,
+        type: this.operationSelected
+      };
 
-    this.balanceService.addItem(operation);
-    this.operationService.addOperation(operation);
+      this.balanceService.addItem(operation);
+      this.operationService.addOperation(operation);
+    }
+
   }
 
-  private initForm(){
+  private initForm() {
     this.addForm = new FormGroup({
-      amount: new FormControl(),
-      description: new FormControl()
+      amount: new FormControl('', [Validators.required]),
+      description: new FormControl('', [Validators.required, Validators.maxLength(15)])
     });
   }
 
-  switchToExpense(){
+  switchToExpense() {
     this.operationSelected = 'expense';
   }
-  switchToIncome(){
+  switchToIncome() {
     this.operationSelected = 'income';
   }
 }

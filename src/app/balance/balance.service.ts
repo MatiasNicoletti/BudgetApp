@@ -17,8 +17,7 @@ export class BalanceService{
     }
 
     getBalance(){
-      this.balance.amount = 80;
-      // console.log(this.balance);
+      this.balance.amount = 0;
       return this.balance;
     }
 
