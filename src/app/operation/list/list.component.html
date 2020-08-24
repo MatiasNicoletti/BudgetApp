@@ -1,14 +1,3 @@
 <div class="items-list">
-  <!-- <div [ngStyle]="{display: 'none'}" *ngFor="let itemEl of itemList let i = index">
-        <app-item [item]="itemEl"></app-item>
-    </div> -->
-  <div class="item" *ngFor="let itemEl of itemList; let i = index">
-    <p class="font-size-small-large">{{ itemEl.description }}</p>
-    <div class="amount">
-      <button class="btn-delete-item">x</button>
-      <span class="font-size-small-large"
-        >$<span class="font-size-small-large">{{ itemEl.amount }}</span></span
-      >
-    </div>
-  </div>
+    <app-item *ngFor="let itemEl of itemList let i = index" [item]="itemEl"></app-item>
 </div>
