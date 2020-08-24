@@ -4,9 +4,8 @@ app-list{
     height: 85%;
     display: flex;
     justify-content: center;
-    margin: 0 auto;
     border-radius: 2rem;
-
+    margin-bottom: 1rem;
     &::-webkit-scrollbar {
       width: 1em;
     }
@@ -16,8 +15,7 @@ app-list{
     }
      
     &::-webkit-scrollbar-thumb {
-      background-color: rgb(78, 18, 18);
-      outline: 1px solid rgb(37, 99, 161);
+      background-color: rgb(100, 100, 100);
     }
 }
 .items-list{
@@ -25,5 +23,6 @@ app-list{
   height: 100%;
   display: block;
   margin-left: 5rem;
-    }
+  
+}
     

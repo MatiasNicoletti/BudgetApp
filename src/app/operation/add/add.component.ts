@@ -3,6 +3,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { OperationService } from '../operation.service';
 import { BalanceService } from 'src/app/balance/balance.service';
 import { Operation } from 'src/app/models/Operation';
+import { isNumber } from 'util';
 
 @Component({
   selector: 'app-add',
@@ -12,6 +13,7 @@ import { Operation } from 'src/app/models/Operation';
 export class AddComponent implements OnInit {
   addForm: FormGroup;
   operationSelected = 'income';
+  // isAmountIncorrect:boolean = this.isAmountIncorrec();
 
   constructor(private operationService: OperationService, private balanceService: BalanceService) { }
 
@@ -28,7 +30,6 @@ export class AddComponent implements OnInit {
         description: this.addForm.value.description,
         type: this.operationSelected
       };
-
       this.balanceService.addItem(operation);
       this.operationService.addOperation(operation);
     }
@@ -37,7 +38,7 @@ export class AddComponent implements OnInit {
 
   private initForm() {
     this.addForm = new FormGroup({
-      amount: new FormControl('', [Validators.required]),
+      amount: new FormControl('', [Validators.required, Validators.pattern("^[0-9]*$")]),
       description: new FormControl('', [Validators.required, Validators.maxLength(15)])
     });
   }
@@ -48,4 +49,5 @@ export class AddComponent implements OnInit {
   switchToIncome() {
     this.operationSelected = 'income';
   }
+
 }
