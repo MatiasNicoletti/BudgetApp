@@ -38,7 +38,7 @@ export class AddComponent implements OnInit {
 
   private initForm() {
     this.addForm = new FormGroup({
-      amount: new FormControl('', [Validators.required, Validators.pattern("^[0-9]*$")]),
+      amount: new FormControl('', [Validators.required, Validators.pattern(/^[0-9]*$/)]),
       description: new FormControl('', [Validators.required, Validators.maxLength(15)])
     });
   }

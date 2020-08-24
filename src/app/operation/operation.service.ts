@@ -24,6 +24,17 @@ export class OperationService {
         
     }
 
+    deleteOperation(operation:Operation){
+        if(operation.type === 'income'){
+            this.incomes.splice(this.incomes.indexOf(operation), 1);
+            this.incomeSubject.next([...this.incomes]);
+        }else{
+            this.expenses.splice(this.expenses.indexOf(operation), 1);
+            this.expenseSubject.next([...this.expenses]);
+        }
+        
+    }
+
     getExpenseListener(){
         return this.expenseSubject.asObservable();
     }

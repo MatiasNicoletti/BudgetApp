@@ -23,6 +23,9 @@ export class BalanceService{
 
     addItem(operation: Operation){
       operation.type === 'income' ? this.balance.amount += +operation.amount : this.balance.amount -= +operation.amount;
-    
+    }
+
+    removeItem(operation: Operation){
+      operation.type === 'income' ? this.balance.amount -= +operation.amount : this.balance.amount += +operation.amount;
     }
 }

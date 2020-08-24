@@ -1,8 +1,7 @@
 <div class="item">
   <p class="font-size-small-large">{{item.description}}</p>
   <div class="amount">
-    <button class="btn-delete-item">x</button>
+    <button class="btn-delete-item" (click)="onDeleteItem()">x</button>
     <span class="font-size-small-large" [ngClass]="{'green': item.type==='income','red': item.type==='expense'}">${{item.amount}}</span>
-
   </div>
 </div>
