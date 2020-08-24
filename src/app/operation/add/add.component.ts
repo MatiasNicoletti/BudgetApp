@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { OperationService } from '../operation.service';
+import { BalanceService } from 'src/app/balance/balance.service';
+import { Operation } from 'src/app/models/Operation';
 
 @Component({
   selector: 'app-add',
@@ -11,20 +13,22 @@ export class AddComponent implements OnInit {
   addForm: FormGroup;
   operationSelected = 'income';
 
-  constructor(private operationService: OperationService) { }
+  constructor(private operationService: OperationService, private balanceService: BalanceService) { }
 
   ngOnInit(): void {
     this.initForm();
   }
 
   submitForm(){
-    // console.log(this.operationSelected);
-    // console.log(this.addForm.value.amount);
-    this.operationService.addOperation(
-      {amount: this.addForm.value.amount, 
+    const operation: Operation = 
+    {
+      amount: this.addForm.value.amount,
       description: this.addForm.value.description,
       type: this.operationSelected
-    });
+    };
+
+    this.balanceService.addItem(operation);
+    this.operationService.addOperation(operation);
   }
 
   private initForm(){

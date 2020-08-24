@@ -1,6 +1,7 @@
 import { Injectable, OnInit } from '@angular/core';
 import { Balance } from '../models/Balance';
 import { Subject } from 'rxjs';
+import { Operation } from '../models/Operation';
 
 @Injectable({
     providedIn: 'root'
@@ -21,5 +22,8 @@ export class BalanceService{
       return this.balance;
     }
 
-    addItem
+    addItem(operation: Operation){
+      operation.type === 'income' ? this.balance.amount += +operation.amount : this.balance.amount -= +operation.amount;
+    
+    }
 }
