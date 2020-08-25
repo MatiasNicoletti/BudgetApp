@@ -1,7 +1,48 @@
-<div class="item">
-  <p class="font-size-small-large">{{item.description}}</p>
-  <div class="amount">  
-    <button class="btn-delete-item" (click)="onDeleteItem()"><span>x</span></button> 
-    <span class="font-size-small-large" [ngClass]="{'green': item.type==='income','red': item.type==='expense'}">${{item.amount}}</span>
+<div class="item" (click)="onEditItem()">
+  <p class="font-size-small-large">{{ item.description }}</p>
+  <div class="amount">
+    <button class="btn-delete-item" (click)="onDeleteItem()">
+      <span>x</span>
+    </button>
+    <span
+      class="font-size-small-large"
+      [ngClass]="{
+        green: item.type === 'income',
+        red: item.type === 'expense'
+      }"
+      >${{ item.amount }}</span
+    >
+  </div>
+  <div class="modal-container">
+    <div class="modal-content">
+      <form [formGroup]="editItemForm">
+        <input
+          type="text"
+          formControlName="amount"
+          required
+          class="input-field-small"
+          [ngClass]="{
+            'input-incorrect':
+              editItemForm.controls['amount'].invalid &&
+              (editItemForm.controls['amount'].dirty ||
+                editItemForm.controls['amount'].touched)
+          }"
+        />
+        <input
+          type="text"
+          formControlName="description"
+          required
+          class="input-field-large"
+          [ngClass]="{
+            'input-incorrect':
+              editItemForm.controls['description'].invalid &&
+              (editItemForm.controls['description'].dirty ||
+                editItemForm.controls['description'].touched)
+          }"
+        />
+        
+        <button  type="submit" [ngClass]="{'btn-add-item-disabled': editItemForm.invalid , 'btn-add-item': editItemForm.valid}">ok</button>
+      </form>
+    </div>
   </div>
 </div>

@@ -15,7 +15,8 @@ app-list{
     }
      
     &::-webkit-scrollbar-thumb {
-      background-color: rgb(100, 100, 100);
+      background-color: rgba(100, 100, 100, 0.616);
+      border-radius: 0.5rem;
     }
 }
 .items-list{
