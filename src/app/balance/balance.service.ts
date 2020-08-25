@@ -28,4 +28,10 @@ export class BalanceService{
     removeItem(operation: Operation){
       operation.type === 'income' ? this.balance.amount -= +operation.amount : this.balance.amount += +operation.amount;
     }
+
+    editItem(operation: Operation, updatedOperation: Operation){
+ 
+      this.removeItem(operation);
+      this.addItem(updatedOperation);
+    }
 }

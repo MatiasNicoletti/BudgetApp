@@ -35,6 +35,17 @@ export class OperationService {
         
     }
 
+    editOperation(operation:Operation, updatedOperation: Operation){
+        if(operation.type === 'income'){
+            this.incomes[this.incomes.indexOf(operation)] = updatedOperation;
+            this.incomeSubject.next([...this.incomes]);
+        }else{
+            this.expenses[this.expenses.indexOf(operation)] = updatedOperation;
+            this.expenseSubject.next([...this.expenses]);
+        }
+        
+    }
+
     getExpenseListener(){
         return this.expenseSubject.asObservable();
     }

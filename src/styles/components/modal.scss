@@ -5,21 +5,32 @@
     transform: translate(-50%, -50%);
     height: 100vh;
     width: 100vw;
-    background-color: #0000005d;
     z-index: 50;
     display: flex;
     justify-content: center;
     align-items: center;
+    transition: all .2s ease-in;
+}
+
+.modal-background{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 100%;
+    width: 100%;
+    background-color: #0000005d;
 }
 
 .modal-content{
     width: 50%;
     height: 15%;
-    background-color: $grey-light;
+    background-color: $grey-darker;
     display: flex;
     justify-content: center;
     align-items: center;
-    
+    position: relative;
+    z-index: 60;
     border-radius: 1rem;
     box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.158);
     & *{
