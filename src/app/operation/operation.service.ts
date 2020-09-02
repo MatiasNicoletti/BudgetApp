@@ -19,6 +19,7 @@ export class OperationService {
         }else{
             this.expenses.push(operation);
             this.expenseSubject.next([...this.expenses]);
+            
         }
         
         

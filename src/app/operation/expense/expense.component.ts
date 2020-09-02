@@ -1,4 +1,4 @@
-import { Component, OnInit, Output } from '@angular/core';
+import { Component, OnInit, Output, OnDestroy } from '@angular/core';
 import { OperationService } from '../operation.service';
 import { Operation } from 'src/app/models/Operation';
 import { Subscription, Subject } from 'rxjs';
@@ -9,12 +9,13 @@ import { EventEmitter } from '@angular/core';
   templateUrl: './expense.component.html',
   styleUrls: ['./expense.component.scss']
 })
-export class ExpenseComponent implements OnInit {
+export class ExpenseComponent implements OnInit, OnDestroy {
   expenses: Operation[] = [];
   expensesSubject:Subject<Operation[]> = new Subject<Operation[]>();
   private expensesSubscription: Subscription;
 
   constructor(private operationService: OperationService) { }
+  
 
   ngOnInit(): void {
     this.expensesSubscription = this.operationService.getExpenseListener().subscribe(response => {
@@ -24,5 +25,7 @@ export class ExpenseComponent implements OnInit {
     });
   }
 
-
+  ngOnDestroy(): void {
+    this.expensesSubscription.unsubscribe();
+  }
 }

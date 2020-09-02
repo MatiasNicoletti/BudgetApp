@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Operation } from 'src/app/models/Operation';
 import { Subscription, Subject } from 'rxjs';
 import { OperationService } from '../operation.service';
@@ -8,13 +8,14 @@ import { OperationService } from '../operation.service';
   templateUrl: './income.component.html',
   styleUrls: ['./income.component.scss']
 })
-export class IncomeComponent implements OnInit {
+export class IncomeComponent implements OnInit, OnDestroy {
 
   incomes: Operation[] = [];
   incomesSubject:Subject<Operation[]> = new Subject<Operation[]>();
   private expensesSubscription: Subscription;
 
   constructor(private operationService: OperationService) { }
+  
 
   ngOnInit(): void {
     this.expensesSubscription = this.operationService.getIncomeListener().subscribe(response => {
@@ -23,5 +24,7 @@ export class IncomeComponent implements OnInit {
       this.incomesSubject.next([...this.incomes]);
     });
   }
-
+  ngOnDestroy(): void {
+    this.expensesSubscription.unsubscribe();
+  }
 }
